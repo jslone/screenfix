@@ -54,8 +54,12 @@
       setupShader("2d-vertex-shader", gl.VERTEX_SHADER);
       setupShader("2d-fragment-shader", gl.FRAGMENT_SHADER);
 
+      gl.validateProgram(program);
       gl.linkProgram(program);
       gl.useProgram(program);
+
+      console.log("Program logs:")
+      console.log(gl.getProgramInfoLog(program));
 
       var buffer = gl.createBuffer();
       gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
